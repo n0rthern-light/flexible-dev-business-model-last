@@ -1,0 +1,58 @@
+{% extends '../base.html' %}
+{% block content %}
+    {% if form_template %}
+        <div class="form-heading">
+            <h1 class="title">{{ form_template.name }}</h1>
+        </div>
+        <form>
+            {% for section_questions in sections_and_questions %}
+                <div class="form-section">
+                    <div class="form-section-heading">
+                        <h2 class="section-title">{{section_questions.section_object.label}}</h2>
+                    </div>
+                    <div class="form-section-body">
+                        <div class="form-section-body-disclaimer-wrapper">
+                            {% if section_questions.section_object.disclaimer %}
+                                <p class="section-disclaimer">{{section_questions.section_object.disclaimer}}</p>
+                            {% endif %}
+                        </div>
+                        <div class="form-section-body-question-fields-wrapper">
+                            {% for question in section_questions.section_questions %}
+                            <div class="form-question">
+                                <label>
+                                    {% if question.input_type == 7%}
+                                        <input type="checkbox" name="{{question.name}}" {% if question.required_field is True %}required{% endif %}/>
+                                    <p>{{question.label}}{% if question.required_field is True %}<span class="field-required">*</span>{% endif %}</p>
+                                    {% else %}
+                                        <p>{{question.label}}{% if question.required_field is True %}<span class="field-required">*</span>{% endif %}</p>
+                                        <input type="text" name="{{question.name}}" {% if question.required_field is True %}required{% endif %}/>
+                                    {% endif %}
+                                </label>
+                            </div>
+                        {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            <!--
+            {% for question in questions %}
+                <div class="form-question {{question.classlist}}">
+                    <label>
+                        <p>{{question.label}}</p>
+                        {% if question.input_type == 0 %}
+                            <input type="text" name="{{question.name}}"/>
+                        {% elif question.input_type == 4 %}
+                            <textarea name="{{question.name}}"></textarea>
+                        {% endif %}
+                    </label>
+                </div>
+            {% endfor %}
+            -->
+            <div class="form-submit">
+                <input type="submit" value="Wyślij" class="btn btn-primary"/>
+            </div>
+        </form>
+    {% else %}
+        <p>This form is unavailable.</p>
+    {% endif %}
+{% endblock %}

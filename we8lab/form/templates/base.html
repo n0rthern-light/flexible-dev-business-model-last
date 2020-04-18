@@ -1,0 +1,47 @@
+{% load static %}
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>form.we8lab.pl</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{% static '/main.css' %}">
+
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+
+  <header>
+    <a href="#">we8lab.pl</a>
+  </header>
+
+  <div id="main-content">
+
+    {% block content %}
+    {% endblock %}
+
+  </div>
+
+
+
+  <div id="footer">
+    <p>&copy;&nbsp;2020&nbsp;<a href="//web8lab.pl" title="Strona główna web8lab.pl">web8lab.pl</a> ● Full-Stack Developing</p>
+  </div>
+
+  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+  <script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set','transport','beacon'); ga('send', 'pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async></script>
+</body>
+
+</html>
