@@ -1,0 +1,9 @@
+<label class="form-question-label input select">
+    <p>{{question.label}}{% if question.required_field is True %}<span class="field-required">*</span>{% endif %}</p>
+    <select class="form-control form-control-sm" name="{{question.name}}" {% if question.required_field is True %}required{% endif %}>
+        <option value="a">Value A</option>
+        <option value="b">Value B</option>
+        <option value="c">Value C</option>
+        <option value="d">Value D</option>
+    </select>
+</label>

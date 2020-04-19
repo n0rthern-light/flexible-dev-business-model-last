@@ -1,3 +1,7 @@
+:root {
+  --main-color: #02e49b;
+}
+
 body, html {
     margin: 0;
     padding: 0;
@@ -19,7 +23,7 @@ body > header {
     color: white;
 }
 
-body > #main-content {
+body > #main-content-form-add {
     width: 100%;
     max-width: 500px;
     padding: 15px;
@@ -92,9 +96,13 @@ p.section-disclaimer {
 }
 
 .form-question p {
-    margin-bottom: 0;
+    margin-bottom: .45rem;
+    line-height: 1.1;
     font-size: .8em;
     font-weight: 500;
+          -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10+ and Edge */
+  user-select: none; /* Standard syntax */
 }
 
 .form-question + .form-question {
@@ -120,4 +128,105 @@ p.section-disclaimer {
     color: white;
     opacity: .5;
     font-size: .8em;
+}
+
+.form-question > label.input.check {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: row;
+}
+
+.form-question > label.input.check > input {
+    margin-top: .1em;
+}
+
+.form-question > label.input.check > p {
+    margin-left: 10px;
+    margin-bottom: 0;
+}
+
+.form-section.double-column .form-section-body-question-fields-wrapper {
+    display: grid;
+    grid-column-gap: .75rem;
+    grid-row-gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.form-section.double-column .form-section-body-question-fields-wrapper > .form-question + .form-question {
+    margin-top: 0;
+}
+
+.form-section.double-column .form-section-body-question-fields-wrapper > *:last-child:nth-child(odd) {
+    grid-column: 1 / 3;
+}
+
+.form-section.double-column .form-section-body-question-fields-wrapper > *.full-width-column {
+    grid-column: 1 / 3;
+}
+
+.form-question > label.input.list .list-append-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.form-question > label.input.list .list-append-form > button.add {
+    margin-left: 10px;
+    align-self: stretch;
+    outline: none;
+    border: none;
+    background-color: var(--main-color);
+    color: white;
+    padding: 0 10px;
+    display: inline-flex;
+    justify-content: center;
+    aling-items: center;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.form-question > label.input.list .list-wrapper {
+    border: 1px solid #ced4da;
+    background-color: rgba(255,255,255,.33);
+    border-radius: 5px;
+    margin-bottom: .5rem;
+    padding: .75rem .5rem;
+}
+
+.form-question > label.input.list .list-wrapper > ul {
+    padding: 0;
+    margin: 0;
+    font-size: .8em;
+    list-style: none;
+}
+
+.form-question > label.input.list .list-wrapper > ul > li {
+    line-height: 1.1;
+    position: relative;
+    padding-left: .75em;
+}
+
+.form-question > label.input.list .list-wrapper > ul > li:hover {
+    color: var(--danger);
+    cursor: pointer;
+}
+
+.form-question > label.input.list .list-wrapper > ul > li:hover:before {
+    color: var(--danger);
+}
+
+.form-question > label.input.list .list-wrapper > ul > li:before {
+  content: "\f054";
+  font-family: 'Font Awesome\ 5 Free';
+  position: absolute;
+  left: 0;
+  top: .53em;
+  color: var(--main-color);
+  font-weight: 900;
+  font-size: .6em;
+}
+
+.form-question > label.input.list .list-wrapper > ul > li + li {
+    margin-top: .5rem;
 }

@@ -30,6 +30,7 @@ class TemplateSection(models.Model):
     name = models.CharField(max_length=75, default='')
     label = models.CharField(max_length=250, default='')
     disclaimer = models.TextField(blank=True)
+    css_class = models.CharField(max_length=150, default='', blank=True)
 
 
 class TemplateQuestion(models.Model):

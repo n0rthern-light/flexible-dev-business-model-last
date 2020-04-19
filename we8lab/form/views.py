@@ -7,16 +7,16 @@ from .models import *
 # Create your views here.
 def index(request):
     index_tmp = Template.objects.filter(is_index_template=True).last()
-    return HttpResponseRedirect(f'new/{index_tmp.id}/')
+    return HttpResponseRedirect(f'{index_tmp.id}/new/')
 
 
 def new(request, id):
-    new_form_template = Template.objects.filter(id=id).last()
-    sections = TemplateSection.objects.filter(template=id)
+    new_form_template = Template.objects.filter(id=id).order_by('id').last()
+    sections = TemplateSection.objects.filter(template=id).order_by('id')
 
     sections_and_questions = []
     for section in sections:
-        section_questions = TemplateQuestion.objects.filter(template_section=section.id)
+        section_questions = TemplateQuestion.objects.filter(template_section=section.id).order_by('id')
         sections_and_questions.append({
             'section_object': section,
             'section_questions': section_questions

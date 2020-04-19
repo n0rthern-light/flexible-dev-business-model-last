@@ -1,12 +1,13 @@
 {% extends '../base.html' %}
 {% block content %}
+<div id="main-content-form-add">
     {% if form_template %}
         <div class="form-heading">
             <h1 class="title">{{ form_template.name }}</h1>
         </div>
         <form>
             {% for section_questions in sections_and_questions %}
-                <div class="form-section">
+                <div class="form-section {{section_questions.section_object.css_class}}">
                     <div class="form-section-heading">
                         <h2 class="section-title">{{section_questions.section_object.label}}</h2>
                     </div>
@@ -18,18 +19,8 @@
                         </div>
                         <div class="form-section-body-question-fields-wrapper">
                             {% for question in section_questions.section_questions %}
-                            <div class="form-question">
-                                <label>
-                                    {% if question.input_type == 7%}
-                                        <input type="checkbox" name="{{question.name}}" {% if question.required_field is True %}required{% endif %}/>
-                                    <p>{{question.label}}{% if question.required_field is True %}<span class="field-required">*</span>{% endif %}</p>
-                                    {% else %}
-                                        <p>{{question.label}}{% if question.required_field is True %}<span class="field-required">*</span>{% endif %}</p>
-                                        <input type="text" name="{{question.name}}" {% if question.required_field is True %}required{% endif %}/>
-                                    {% endif %}
-                                </label>
-                            </div>
-                        {% endfor %}
+                            {% include './form-question/index.html' %}
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
@@ -55,4 +46,5 @@
     {% else %}
         <p>This form is unavailable.</p>
     {% endif %}
+</div>
 {% endblock %}

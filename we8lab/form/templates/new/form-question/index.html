@@ -1,0 +1,23 @@
+<div class="form-question">
+        {% if question.input_type == 2 %}
+            {% include './inputs/number.html' %}
+        {% elif question.input_type == 3 %}
+            {% include './inputs/money.html' %}
+        {% elif question.input_type == 4 %}
+            {% include './inputs/email.html' %}
+        {% elif question.input_type == 5 %}
+            {% include './inputs/phone.html' %}
+        {% elif question.input_type == 6 %}
+            {% include './inputs/phone.html' %}
+        {% elif question.input_type == 7 %}
+            {% include './inputs/check.html' %}
+        {% elif question.input_type == 8 %}
+            {% include './inputs/textarea.html' %}
+        {% elif question.input_type == 9 %}
+            {% include './inputs/select.html' %}
+        {% elif question.input_type == 10 %}
+            {% include './inputs/list.html' %}
+        {% else %}
+            {% include './inputs/text.html' %}
+        {% endif %}
+</div>

@@ -1,0 +1,4 @@
+<label class="form-question-label input phone">
+    <p>{{question.label}}{% if question.required_field is True %}<span class="field-required">*</span>{% endif %}</p>
+    <input class="form-control form-control-sm" type="text" name="{{question.name}}" {% if question.required_field is True %}required{% endif %}/>
+</label>

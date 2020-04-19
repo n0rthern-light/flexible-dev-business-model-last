@@ -1,0 +1,15 @@
+<label class="form-question-label input list">
+    <p>{{question.label}}{% if question.required_field is True %}<span class="field-required">*</span>{% endif %}</p>
+    <div name="{{question.name}}" class="list-wrapper">
+        <ul>
+            <li title="Usuń">to jest mój blog: http://w365dnidookolazycia.blogspot.com/</li>
+            <li title="Usuń">chciałabym, żeby był ładny (jedyna podpowiedź, jaka mi przychodzi do głowy to minimalistyczny ;))</li>
+            <li title="Usuń">czy da się zrobić, żeby był ładny na blogspot czy raczej polecane jest przeniesienie się na przykład na wordpress?</li>
+            <li title="Usuń">potrzebowałabym jakieś ładne logo</li>
+        </ul>
+    </div>
+    <div class="list-append-form">
+        <input type="text" name="{{question.name}}-append-me" class="form-control form-control-sm" required/>
+        <button class="add" target="{{question.name}}"><i class="fas fa-plus"></i></button>
+    </div>
+</label>
