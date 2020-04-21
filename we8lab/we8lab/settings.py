@@ -25,7 +25,7 @@ SECRET_KEY = 'axsw_q97j@h%$9-k)xoq&!4u@wjs9&tj+=3w@87qprhr_pau36'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*', '85.190.236.109', 'app2.mske1337.usermd.net', 'localhost']
 
 
 # Application definition
@@ -74,6 +74,13 @@ WSGI_APPLICATION = 'we8lab.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+
+# 'ENGINE': 'django.db.backends.postgresql_psycopg2',
+# 'NAME': 'p1122_we8lab2448',
+# 'USER': 'p1122_we8lab2448',
+# 'PASSWORD': 'pv9MZaOv7sWupLTkFz66',
+# 'HOST': 'pgsql45.mydevil.net',
+# 'PORT': '5432',
 
 DATABASES = {
     'default': {
