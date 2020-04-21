@@ -82,16 +82,36 @@ WSGI_APPLICATION = 'we8lab.wsgi.application'
 # 'HOST': 'pgsql45.mydevil.net',
 # 'PORT': '5432',
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
+database_local = {
+    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    'NAME': 'postgres',
+    'USER': 'postgres',
+    'PASSWORD': '',
+    'HOST': 'localhost',
+    'PORT': '5432',
 }
+
+database_prod = {
+    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    'NAME': 'p1122_we8lab2448',
+    'USER': 'p1122_we8lab2448',
+    'PASSWORD': 'pv9MZaOv7sWupLTkFz66',
+    'HOST': 'pgsql45.mydevil.net',
+    'PORT': '5432',
+}
+
+if os.path.exists('./.prod'):
+    print('running on prod database')
+    DATABASES = {
+        'default': database_prod
+    }
+else:
+    print('running on local(dev) database')
+    DATABASES = {
+        'default': database_local
+    }
+
+
 
 
 # Password validation
@@ -131,3 +151,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+
+# Zmienna BASE_DIR powinna być utworzona przez Django w pliku settings.py
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'public', 'static')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'public', 'media')
