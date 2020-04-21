@@ -29,5 +29,4 @@ urlpatterns = [
     path('', index),
     path('admin/', admin.site.urls),
     path('form/', include('form.urls')),
-    path('bot/', include('bot.urls'))
 ]
